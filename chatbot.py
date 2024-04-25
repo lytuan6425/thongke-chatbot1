@@ -1,13 +1,13 @@
 import PyPDF2
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 with open('thongke.pdf', 'rb') as file:
 	reader = PyPDF2.PdfFileReader(file)
 	text = ''
 	for page in range(reader.numPages):
 		text += reader.getPage(page).extractText()
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 
 # Tokenize the text
 tokens = word_tokenize(text)
